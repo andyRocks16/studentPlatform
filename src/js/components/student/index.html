@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Drafts</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+
+    <style>
+        .content,
+        .panel {
+            margin-top: 50px;
+        }
+        
+        .container {
+            margin-top: 50px;
+        }
+        .pass{
+            background-color: 	#5cb85c
+        }
+        .fail{
+            background-color: 	#d9534f
+        }
+    </style>
+</head>
+
+<body>
+    <section class="container">
+        <section class="container-fluid">
+            <div class="col-xs-7">
+                <select ng-model="$ctrl.action" class="form-control">
+                <option value="">Select</option>                
+                <option value="1">Delete</option>
+                <option value="2">Pass</option>
+                <option value="3">Fail</option>                
+                </select>
+            </div>
+            <div>
+                <button class="btn btn-primary" ng-click="$ctrl.perform()">Perform</button>
+            </div>
+        </section>
+        <section class="content container-fluid ">
+            <div class="panel-group" style="cursor:pointer" id="accordion">
+                <div ng-repeat="item in $ctrl.records track by $index">
+                    <div class="panel panel-color" id="panel-color{{item.id}}" ng-class="grading">
+                        <div class="panel-heading">
+                            <table class="table">
+                                <thead>
+                                    <th>
+                                        <div class="checkbox">
+                                            <label>
+                                            <input type="checkbox" ng-checked="($ctrl.studcheck.indexOf(item) > -1) ? true : false" ng-click="$ctrl.toggleSelection(item)">
+                                            <h4 class="panel-title">
+                                                <a data-toggle="collapse" data-parent="#accordion" data-target="#collapse{{item.id}}">>
+                                                     {{item.fullname}} 
+                                                </a>
+                                            </h4>
+                                        </label>
+                                        </div>
+                                    </th>
+                                    <th>
+                                        <button ng-click="$ctrl.getDetailsService($index)" class="btn btn-primary btn-sm btn-default">Service Data</button>
+                                    </th>
+                                    <th>
+                                        <button ng-click="$ctrl.getDetailsFactory($index)" class="btn btn-primary btn-sm btn-default">Factory Data</button>
+                                    </th>
+                                    <th>
+                                        <ng-mydirective2></ng-mydirective2>
+                                    </th>
+                                </thead>
+                            </table>
+                        </div>
+
+                        <div id="collapse{{item.id}}" class="panel-collapse collapse out">
+                            <div class="panel-body">
+                                <div class="table-responsive">
+                                    <table class="table table-striped">
+                                        <thead>
+                                            <tr>
+                                                <th>Student ID</th>
+                                                <th>Full Name</th>
+                                                <th>Email</th>
+                                                <th>Marks</th>
+                                                <th>Result</th>
+                                                <th>Method</th>
+                                                <th>Actions</th>
+                                            </tr>
+                                        </thead>
+
+                                        <tr>
+                                            <td>{{item.id}}</td>
+                                            <td>{{item.fullname}}</td>
+                                            <td>{{item.email}}</td>
+                                            <td>{{item.marks}}</td>
+                                            <td>{{item.result}}</td>
+                                            <td>{{item.method}}</td>
+                                            <td>
+                                                <button type="button" data-toggle="collapse" data-target="#edit{{item.id}}" ng-click="$ctrl.openForm(item)" class="btn btn-primary btn-sm btn-warning"> Edit </button>
+                                                <button type="button" ng-click="$ctrl.delete(index)" class="btn btn-primary btn-sm btn-danger"> Delete </button>
+                                            </td>
+                                        </tr>
+
+
+                                    </table>
+                                </div>
+                                <div id="edit{{item.id}}" class="panel-collapse collapse out">
+                                    <div class="panel">
+                                        <div class="panel-body">
+                                            <form class="form-horizontal">
+                                                <div class="form-group">
+                                                    <label class="control-label col-sm-2" for="name">Name :</label>
+                                                    <div class="col-sm-10">
+                                                        <input ng-model="$ctrl.fullname" type="text" class="form-control" id="name" placeholder="Enter Name">
+                                                    </div>
+                                                </div>
+                                                <div class="form-group">
+                                                    <label class="control-label col-sm-2" for="id">ID :</label>
+                                                    <div class="col-sm-10">
+                                                        <input ng-model="$ctrl.id" type="number" class="form-control" id="id" placeholder="Enter ID">
+                                                    </div>
+                                                </div>
+                                                <div class="form-group">
+                                                    <label class="control-label col-sm-2" for="email">Email:</label>
+                                                    <div class="col-sm-10">
+                                                        <input ng-model="$ctrl.email" type="email" class="form-control" id="email" placeholder="Enter email">
+                                                    </div>
+                                                </div>
+                                                <div class="form-group">
+                                                    <label class="control-label col-sm-2" for="marks">Marks:</label>
+                                                    <div class="col-sm-10">
+                                                        <input ng-model="$ctrl.marks" type="number" class="form-control" id="marks" placeholder="Enter Marks">
+                                                    </div>
+                                                </div>
+                                                <div class="form-group">
+                                                    <label class="control-label col-sm-2" for="result">Result:</label>
+                                                    <div class="col-sm-10">
+                                                        <input ng-model="$ctrl.result" type="text" class="form-control" id="result" placeholder="Enter Marks">
+                                                    </div>
+                                                </div>
+                                                <div class="form-group">
+                                                    <div class="col-sm-offset-2 col-sm-10">
+                                                        <button type="submit" class="btn btn-success" ng-click="$ctrl.edit($index)">Submit</button>
+                                                    </div>
+                                                </div>
+                                            </form>
+
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <section class="container-fluid">
+            <button ng-click="$ctrl.checkAll()" class="btn btn-primary btn-sm btn-default">Check All</button>
+            <button ng-click="$ctrl.uncheckAll()" class="btn btn-primary btn-sm btn-default">Uncheck All</button>            
+        </section>
+
+
+</body>
+
+</html>

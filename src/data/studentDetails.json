@@ -1,0 +1,82 @@
+[
+    {
+        "id": "1",
+        "fullname": "Bhavya Khamesra",
+        "email": "bhavya12@gmail.com",
+        "marks": "78",
+        "result": "65%",
+        "grade" : "F"
+    },
+    {
+        "id": "2",
+        "fullname": "Neelansha Trivedi",
+        "email": "neelansha10@gmail.com",
+        "marks": "99",
+        "result": "92%",
+        "grade" : "P"        
+    },
+    {
+        "id": "3",
+        "fullname": "Gayatri Khatwani",
+        "email": "gkhatu@gmail.com",
+        "marks": "97",
+        "result": "96%",
+        "grade" : "P"        
+    },
+    {
+        "id": "4",
+        "fullname": "Aman Sangtani",
+        "email": "asangtani@gmail.com",
+        "marks": "29",
+        "result": "42%",
+        "grade" : "F"        
+    },
+    {
+        "id": "5",
+        "fullname": "Ramona Arora",
+        "email": "rarora@gmail.com",
+        "marks": "73",
+        "result": "82%",
+        "grade" : "P"        
+    },
+    {
+        "id": "6",
+        "fullname": "Deepak Khemka",
+        "email": "madu@gmail.com",
+        "marks": "45",
+        "result": "32%",
+        "grade" : "F"        
+    },
+    {
+        "id": "7",
+        "fullname": "Ridhima Vashisht",
+        "email": "rvasisht@gmail.com",
+        "marks": "23",
+        "result": "65%",
+        "grade" : "F"        
+    },
+    {
+        "id": "8",
+        "fullname": "Manasvini Munjal",
+        "email": "manas@gmail.com",
+        "marks": "56",
+        "result": "76%",
+        "grade" : "P"        
+    },
+    {
+        "id": "9",
+        "fullname": "Kislay Keshari",
+        "email": "kkeshari@gmail.com",
+        "marks": "67",
+        "result": "77%",
+        "grade" : "F"        
+    },
+    {
+        "id": "10",
+        "fullname": "Niloy Sarkar",
+        "email": "yolinrakras@gmail.com",
+        "marks": "51",
+        "result": "86%",
+        "grade" : "P"        
+    }
+]

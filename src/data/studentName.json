@@ -1,0 +1,52 @@
+[
+    {
+        "id" : 1,
+        "fullname": "Bhavya Khamesra",
+        "grade" : "F" 
+    },
+    {
+        "id" : 2,
+        "fullname": "Neelansha Trivedi",
+        "grade" : "P" 
+    },
+    {
+        "id" : 3,
+        "fullname": "Gayatri Khatwani",
+        "grade" : "P" 
+    },
+    {
+        "id" : 4,
+        "fullname": "Aman Sangtani",
+        "grade" : "F" 
+    },
+    {
+        "id" : 5,
+        "fullname": "Ramona Arora",
+        "grade" : "P" 
+    },
+    {
+        "id" : 6,
+        "fullname": "Deepak Khemka",
+        "grade" : "F" 
+    },
+    {
+        "id" : 7,
+        "fullname": "Ridhima Vashisht",
+        "grade" : "F" 
+    },
+    {
+        "id" : 8,
+        "fullname": "Manasvini Munjal",
+        "grade" : "P" 
+    },
+    {
+        "id" : 9,
+        "fullname": "Kislay Keshari",
+        "grade" : "F" 
+    },
+    {
+        "id" : 10,
+        "fullname": "Niloy Sarkar",
+        "grade" : "P"
+    }
+]
