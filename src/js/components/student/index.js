@@ -13,13 +13,16 @@ var app = angular.module('app')
                 $this.perRecord = $this.records;
                 if ($this.action == "1") {
                     for (var i = 0; i < $this.studcheck.length; i++) {
+                        
                         for (var j = 0; j < $this.perRecord.length; j++) {
-                            var ele = document.getElementById('panel-color' + $this.perRecord[i].id);
+
+                            console.log($this.studcheck)
+                            console.log(i)
+                            var ele = document.getElementById('panel-color' + $this.studcheck[i].id);
                             ele.classList.remove("panel-danger")
                             ele.classList.remove("panel-success")
                             if ($this.perRecord[j] == $this.studcheck[i]) {
                                 $this.perRecord.splice(j, 1);
-                                $this.studcheck.splice(i, 1);
                             }
                         }
                     }
@@ -49,8 +52,8 @@ var app = angular.module('app')
                         }
                     }
                 }
-                $this.studcheck.splice(0, $this.studcheck.length);
-
+                $this.studcheck = [];
+                console.log($this.studcheck)
             }
             $this.toggleSelection = function (id) {
                 var idx = $this.studcheck.indexOf(id);
@@ -58,8 +61,8 @@ var app = angular.module('app')
                     $this.studcheck.splice(idx, 1);
                 }
                 else {
-                    $this.studcheck[$this.i] = id;
-                    $this.i++;
+                    $this.studcheck.push(id);
+                    
                 }
             }
             $this.openForm = function (item) {
