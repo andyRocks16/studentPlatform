@@ -69,11 +69,11 @@ var app = angular.module('app')
                 $this.marks = parseInt(item.marks);
                 $this.result = item.result;
             }
-            $this.getDetailsService = function (index) {
-                getIndividualRecordService.getRecord($this, index);
+            $this.getDetailsService = function (fullname, index) {
+                getIndividualRecordService.getRecord($this, fullname, index);
             }
-            $this.getDetailsFactory = function (index) {
-                getIndividualRecordFactory.getRecord($this, index);
+            $this.getDetailsFactory = function (fullname, index) {
+                getIndividualRecordFactory.getRecord($this, fullname, index);
                 $this.records[index] = $this.singleRecord;
             }
             $this.edit = function (index) {
@@ -99,9 +99,13 @@ var app = angular.module('app')
     }])
 
     .service('getIndividualRecordService', ['$http', function ($http) {
-        this.getRecord = function ($this, index) {
+        this.getRecord = function ($this, fullname, index) {
             $http.get('src/data/studentDetails.json').then(function (res) {
-                $this.records[index] = res.data[index];
+                res.data.map(function (item) {
+                    if (item.fullname === fullname) {
+                        $this.records[index] = res.data[item.id - 1];
+                    }
+                })
                 $this.records[index].method = "Service";
             });
         }
@@ -109,9 +113,13 @@ var app = angular.module('app')
 
     .factory('getIndividualRecordFactory', ['$http', function ($http) {
         return {
-            getRecord: function ($this, index) {
+            getRecord: function ($this, fullname, index) {
                 $http.get('src/data/studentDetails.json').then(function (res) {
-                    $this.records[index] = res.data[index];
+                    res.data.map(function (item) {
+                        if (item.fullname === fullname) {
+                            $this.records[index] = res.data[item.id - 1];
+                        }
+                    })
                     $this.records[index].method = "Factory";
                 });
             }
@@ -157,20 +165,20 @@ app.directive('ngMydirective2', function () {
                         }
                         p = p.parent();
                     }
-                    scope.ele.className += ' panel-success';
+                    scope.ele.className = 'panel panel-success panel-color';
                 }
                 else if (newvalue == "F") {
                     var p = element.parent();
                     var allParents = [];
                     while (p.length > 0) {
-                        allParents.push(p[0]);
+                        console.log(p[0])
                         if (typeof p[0].className != undefined && p[0].className.includes("panel-color")) {
                             scope.ele = p[0];
                             break;
                         }
                         p = p.parent();
                     }
-                    scope.ele.className += ' panel-danger';
+                    scope.ele.className = 'panel panel-danger panel-color';
                 }
             });
         }

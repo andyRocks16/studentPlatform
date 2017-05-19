@@ -59,10 +59,10 @@
                                         </div>
                                     </th>
                                     <th>
-                                        <button ng-click="$ctrl.getDetailsService($index)" class="btn btn-primary btn-sm btn-default">Service Data</button>
+                                        <button ng-click="$ctrl.getDetailsService(item.fullname,$index)" class="btn btn-primary btn-sm btn-default">Service Data</button>
                                     </th>
                                     <th>
-                                        <button ng-click="$ctrl.getDetailsFactory($index)" class="btn btn-primary btn-sm btn-default">Factory Data</button>
+                                        <button ng-click="$ctrl.getDetailsFactory(item.fullname,$index)" class="btn btn-primary btn-sm btn-default">Factory Data</button>
                                     </th>
                                     <th>
                                         <ng-mydirective2></ng-mydirective2>
