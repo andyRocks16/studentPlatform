@@ -83,7 +83,8 @@ var app = angular.module('app')
                 }
             }
             $this.delete = function (index) {
-                $this.records.splice(index - 1, 1);
+                console.log(index)
+                $this.records.splice(index , 1);
             }
 
         }

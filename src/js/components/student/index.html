@@ -96,7 +96,7 @@
                                             <td>{{item.method}}</td>
                                             <td>
                                                 <button type="button" data-toggle="collapse" data-target="#edit{{item.id}}" ng-click="$ctrl.openForm(item)" class="btn btn-primary btn-sm btn-warning"> Edit </button>
-                                                <button type="button" ng-click="$ctrl.delete(index)" class="btn btn-primary btn-sm btn-danger"> Delete </button>
+                                                <button type="button" ng-click="$ctrl.delete($index)" class="btn btn-primary btn-sm btn-danger"> Delete </button>
                                             </td>
                                         </tr>
 
@@ -110,7 +110,7 @@
                                                 <div class="form-group">
                                                     <label class="control-label col-sm-2" for="name">Name :</label>
                                                     <div class="col-sm-10">
-                                                        <input ng-model="$ctrl.fullname" type="text" class="form-control" id="name" placeholder="Enter Name">
+                                                        <input disabled ng-model="$ctrl.fullname" type="text" class="form-control" id="name" placeholder="Enter Name">
                                                     </div>
                                                 </div>
                                                 <div class="form-group">
