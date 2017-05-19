@@ -13,12 +13,8 @@ var app = angular.module('app')
                 $this.perRecord = $this.records;
                 if ($this.action == "1") {
                     for (var i = 0; i < $this.studcheck.length; i++) {
-                        
                         for (var j = 0; j < $this.perRecord.length; j++) {
-
-                            console.log($this.studcheck)
-                            console.log(i)
-                            var ele = document.getElementById('panel-color' + $this.studcheck[i].id);
+                            var ele = document.getElementById('panel-color' + $this.perRecord[j].id);
                             ele.classList.remove("panel-danger")
                             ele.classList.remove("panel-success")
                             if ($this.perRecord[j] == $this.studcheck[i]) {
@@ -43,7 +39,6 @@ var app = angular.module('app')
                     for (var i = 0; i < $this.studcheck.length; i++) {
                         for (var j = 0; j < $this.perRecord.length; j++) {
                             if ($this.perRecord[j] == $this.studcheck[i]) {
-                                console.log("in")
                                 var ele = document.getElementById('panel-color' + $this.studcheck[i].id);
                                 ele.classList.remove("panel-success")
                                 ele.classList.add("panel-danger")
@@ -53,7 +48,6 @@ var app = angular.module('app')
                     }
                 }
                 $this.studcheck = [];
-                console.log($this.studcheck)
             }
             $this.toggleSelection = function (id) {
                 var idx = $this.studcheck.indexOf(id);
