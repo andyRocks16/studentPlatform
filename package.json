@@ -13,6 +13,7 @@
     "http-server": "^0.9.0"
   },
   "dependencies": {
+    "express": "^4.15.3",
     "http-server": "^0.9.0",
     "jquery": "^3.2.1"
   }
