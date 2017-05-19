@@ -56,7 +56,7 @@ var app = angular.module('app')
                 }
                 else {
                     $this.studcheck.push(id);
-                    
+
                 }
             }
             $this.openForm = function (item) {
@@ -83,8 +83,10 @@ var app = angular.module('app')
                 }
             }
             $this.delete = function (index) {
-                console.log(index)
-                $this.records.splice(index , 1);
+                var ele = document.getElementById('panel-color' + $this.records[index].id);
+                ele.classList.remove("panel-danger")
+                ele.classList.remove("panel-success")
+                $this.records.splice(index, 1);
             }
 
         }
